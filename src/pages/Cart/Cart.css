@@ -1,7 +1,5 @@
 .cart{
     margin:50px 100px 0 100px ;
-    font-size: 15px;
-    font-weight: 500;
 }
 .cart-items-title{
     display: grid;
@@ -37,6 +35,8 @@
     display: flex;
     justify-content: space-between;
     color: #000;
+    font-size: 15px;
+    font-weight: 500;
 }
 .cart-total button{
     border: none;
@@ -54,6 +54,8 @@
 }
 .promocode p{
     color: #000;
+    font-size: 15px;
+    font-weight: 500;
 }
 .cart-promocode-input{
     margin-top: 10px;

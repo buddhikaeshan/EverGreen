@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
 
-  const { cartItems, foodlist, removeFromCart,getTotalCartAmount } = useContext(MenuContext);
+  const { cartItems, foodlist, removeFromCart, getTotalCartAmount } = useContext(MenuContext);
 
   const navigate = useNavigate();
 
