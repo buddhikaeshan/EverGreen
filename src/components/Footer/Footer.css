@@ -1,0 +1,11 @@
+.ftr{
+    background-color: #A9DFA0;
+}
+.ftr p{
+    max-width:90% ;
+    font-size: 13px;
+    color: black;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom:20px ;
+}

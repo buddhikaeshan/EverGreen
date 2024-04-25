@@ -1,0 +1,30 @@
+/* banner */
+.banner-img{
+    height: auto;
+    width: 100%;
+    max-width: 98%;
+    margin: 0px 10px ;
+}
+
+/* about */
+.about{
+    padding: 40px 20px;
+}
+.about p{
+    max-width: 100%;
+    color: #191919;
+    font-size: 14px;
+    font-weight: 600;
+    word-spacing: 0px;
+}
+@media (max-width: 768px) {
+    .about{
+        padding: 0 20px;
+    }
+    .about p{
+    max-width: 100%;
+    }
+    .banner-img{
+        display: none;
+    }
+}
