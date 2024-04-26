@@ -51,21 +51,21 @@ const Cart = () => {
           <hr />
           <div className="cart-total-details">
             <p>Delivery Fee</p>
-            <p>Rs. {100}</p>
+            <p>Rs. {getTotalCartAmount() === 0 ? 0 : 100}</p>
           </div>
           <hr />
           <div className="cart-total-details">
             <p><b>Total</b></p>
-            <p><b>Rs. {getTotalCartAmount()+100}</b></p>
+            <p><b>Rs. {getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 100}</b></p>
           </div>
           <hr />
-          <p align="right"><button onClick={()=>navigate('/order')} >PROCEED TO CHECKOUT</button></p>
+          <p align="right"><button onClick={() => navigate('/order')} >PROCEED TO CHECKOUT</button></p>
         </div>
         <div className="cart-promocode">
           <div className="promocode">
             <p>if you have <span>Promo code</span>, Enter Here</p>
             <div className="cart-promocode-input">
-              <input type="text" placeholder='Promo Code'/>
+              <input type="text" placeholder='Promo Code' />
               <button>Submit</button>
             </div>
           </div>
