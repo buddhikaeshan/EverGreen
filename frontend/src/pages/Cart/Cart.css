@@ -34,9 +34,9 @@
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
-    color: #000;
-    font-size: 15px;
-    font-weight: 500;
+    color: #222;
+    font-size: max(1vw,14px);
+    font-weight: 700;
 }
 .cart-total button{
     border: none;
