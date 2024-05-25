@@ -9,6 +9,10 @@ import addIconGreen from './add_icon_green.png'
 import addIconWhite from './add_icon_white.png'
 import removeIconRed from './remove_icon_red.png'
 import closeIcon from './cross_icon.png'
+import profile_icon from './profile_icon.png'
+import bag_icon from './bag_icon.png'
+import logout_icon from './logout_icon.png'
+import parcel_icon from './parcel_icon.png'
 import { Rss } from 'phosphor-react';
 
 
@@ -23,7 +27,11 @@ export const assets = {
     addIconGreen,
     addIconWhite,
     removeIconRed,
-    closeIcon
+    closeIcon,
+    profile_icon,
+    bag_icon,
+    logout_icon,
+    parcel_icon
 }
 
 export const menulist = [

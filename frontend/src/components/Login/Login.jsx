@@ -1,46 +1,69 @@
 import React from 'react'
 import './Login.css'
+import axios from 'axios'
 import { useState } from 'react'
 import { assets } from '../../assets/assets'
-import axios from 'axios'
+import { useContext } from 'react'
+import { MenuContext } from '../../context/MenuContext'
 
 const Login = ({ setShowLogin }) => {
+ 
+    const { url,setToken } = useContext(MenuContext)
+
 
     const [currState, setCurrState] = useState("Login")
-    const [email,setEmail]=useState('')
-    const [password,setPassword]=useState('')
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        password: ""
+    })
 
-    async function submit(e){
-        e.preventDefault();
-        try{
-            await axios.post("https://localhost:8000/",{
-                email,password
-            })
-        }catch(e){
-            console.log(e);
+    const onChangeHandler = (event) => {
+        const name = event.target.name;
+        const value = event.target.value;
+        setData(data => ({ ...data, [name]: value }))
+    }
+
+    const onLogin = async (event) => {
+        event.preventDefault()
+        let newUrl = url;
+        if (currState === "Login") {
+            newUrl += "/api/user/login"
+        }
+        else {
+            newUrl += "/api/user/register"
+        }
+        const response = await axios.post(newUrl,data);
+        if (response.data.success) {
+            setToken(response.data.token)
+            localStorage.setItem("token",response.data.token)
+            setShowLogin(false)
+        }
+        else{
+            alert(response.data.message)
         }
     }
 
     return (
         <div className='login'>
-            <form action="POST" className="login-container">
+            <form action="POST" onSubmit={onLogin} className="login-container">
                 <div className="login-title">
                     <h2>{currState}</h2>
                     <img onClick={() => setShowLogin(false)} src={assets.closeIcon} alt="" />
                 </div>
                 <div className="login-input">
-                    {currState === "Login" ? <></> : <input type="text" placeholder='Enter Name' required />}
-                    <input type="email" onChange={(e)=>{setEmail(e.target.value)}} placeholder='Example@gmail.com' required />
-                    <input type="Password" onChange={(e)=>{setPassword(e.target.value)}} placeholder='Password' required />
+                    {currState === "Login" ? <></> : <input type="text" name='name' onChange={onChangeHandler} value={data.name} placeholder='Enter Name' required />}
+                    <input type="email" name='email' onChange={onChangeHandler} value={data.email} placeholder='Example@gmail.com' required />
+                    <input type="Password" name='password' onChange={onChangeHandler} value={data.password} placeholder='Password' required />
                 </div>
-                <button>{currState === "Sign Up" ? "Create account" : "Login"}</button>
+                <button type='submit' >{currState === "Sign Up" ? "Create account" : "Login"}</button>
                 <div className="login-condition">
                     <input type="checkbox" required />
-                    <p>by continuing, i aagree to the terms of use & privacy policy</p>
+                    <p>by continuing, i agree to the terms of use & privacy policy</p>
                 </div>
                 {currState === "Login"
-                    ? <p>Create a new account? <span onClick={()=>setCurrState("Sign Up")}>Click here</span></p>
-                    : <p>Already have an account? <span onClick={()=>setCurrState("Login")}>Login here</span></p>
+                    ? <p>Create a new account? <span onClick={() => setCurrState("Sign Up")}>Click here</span></p>
+                    : <p>Already have an account? <span onClick={() => setCurrState("Login")}>Login here</span></p>
                 }
             </form>
         </div>

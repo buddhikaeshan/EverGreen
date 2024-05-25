@@ -17,6 +17,10 @@
     display: block;
     margin: 0 auto;
 }
+.crd-img img{
+    width:300px;
+    height: auto;
+}
 
 .card-title {
     word-spacing: 0px;

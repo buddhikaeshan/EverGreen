@@ -6,7 +6,7 @@ import { MenuContext } from '../../context/MenuContext';
 
 const FoodItem = ({ id, name, price, description, image }) => {
 
-    const {cartItems,addToCart,removeFromCart}=useContext(MenuContext)
+    const {cartItems,addToCart,removeFromCart,url}=useContext(MenuContext)
 
     return (
 
@@ -16,7 +16,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
                     <div id="salesLastYear">
                         <div className="row mt-2">
                             <div className="col- img-pos">
-                                <img className="crd-img img-fluid" src={image} alt="" />
+                                <img className="crd-img img-fluid" src={url+"/images/"+image} alt="" />
                             </div>
                         </div>
 
@@ -25,7 +25,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
                                 <div className="card-body pt-0">
                                     <div className="text-center">
                                         <p className="card-title mb-2">{name}</p>
-                                        <p className='mb-0 food-p'>{description}</p>
+                                        <p className='mb-0 food-p'>({description})</p>
                                         <h4 className="mb-0 food-p">Rs.{price}</h4>
                                         <div className="food-item-counter-pos">
                                         {!cartItems[id]
