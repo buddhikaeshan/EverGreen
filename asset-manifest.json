@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/buddhikaeshan/evergreen.git/static/css/main.41050763.css",
+    "main.js": "/buddhikaeshan/evergreen.git/static/js/main.ba4a82ae.js",
+    "static/js/453.fd3ca0ed.chunk.js": "/buddhikaeshan/evergreen.git/static/js/453.fd3ca0ed.chunk.js",
+    "static/media/2.jpg": "/buddhikaeshan/evergreen.git/static/media/2.6dde898486f50764bb67.jpg",
+    "static/media/back.png": "/buddhikaeshan/evergreen.git/static/media/back.bf35132c9294c7dcdeae.png",
+    "static/media/banner.jpg": "/buddhikaeshan/evergreen.git/static/media/banner.8afd61d1c668c07e5f02.jpg",
+    "static/media/1.jpg": "/buddhikaeshan/evergreen.git/static/media/1.e6765a4abe14a08339b8.jpg",
+    "static/media/3.jpg": "/buddhikaeshan/evergreen.git/static/media/3.1bf899f313a571d3a2b4.jpg",
+    "static/media/logo.png": "/buddhikaeshan/evergreen.git/static/media/logo.6bf1d7c418182d4278a5.png",
+    "static/media/logoore.png": "/buddhikaeshan/evergreen.git/static/media/logoore.6806b36616c7ff2280da.png",
+    "static/media/profile_icon.png": "/buddhikaeshan/evergreen.git/static/media/profile_icon.91cafafa39f7222b953a.png",
+    "static/media/bag_icon.png": "/buddhikaeshan/evergreen.git/static/media/bag_icon.9c816c6b923ef947a58e.png",
+    "index.html": "/buddhikaeshan/evergreen.git/index.html",
+    "main.41050763.css.map": "/buddhikaeshan/evergreen.git/static/css/main.41050763.css.map",
+    "main.ba4a82ae.js.map": "/buddhikaeshan/evergreen.git/static/js/main.ba4a82ae.js.map",
+    "453.fd3ca0ed.chunk.js.map": "/buddhikaeshan/evergreen.git/static/js/453.fd3ca0ed.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.41050763.css",
+    "static/js/main.ba4a82ae.js"
+  ]
+}
