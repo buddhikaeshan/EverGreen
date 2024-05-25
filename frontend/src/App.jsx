@@ -10,6 +10,7 @@ import { useState } from 'react';
 import Login from './components/Login/Login';
 import Verify from './pages/verify/verify';
 import MyOrders from './pages/myOrders/MyOrders'
+import 'bootswatch/dist/lux/bootstrap.min.css';
 
 function App() {
 
