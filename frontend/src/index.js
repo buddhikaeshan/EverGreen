@@ -8,7 +8,7 @@ import MenuContextProvider from './context/MenuContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <BrowserRouter basename="/EverGreen">
+  <BrowserRouter>
     <MenuContextProvider>
       <App />
     </MenuContextProvider>
