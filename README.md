@@ -1,0 +1,8 @@
+![home](https://github.com/user-attachments/assets/501f14bf-efbf-4e26-b47a-e30bf2a46312)
+![cart](https://github.com/user-attachments/assets/4adc6718-4fa5-4ceb-bb9f-4c814116c483)
+![place order](https://github.com/user-attachments/assets/156b3305-aa53-4369-bc57-807ff6df4763)
+![paymet gateaway](https://github.com/user-attachments/assets/c653704b-5d98-47ee-afff-df6cbf362fa2)
+![user order](https://github.com/user-attachments/assets/b6271d31-78d6-46af-aec3-adaa6d921ace)
+![admin product add](https://github.com/user-attachments/assets/212366ba-4670-49a0-bfb8-5bf5157bcd9d)
+![admin product list](https://github.com/user-attachments/assets/e4ac5299-85be-4d14-b88c-dc14f0357ca4)
+![admin order view](https://github.com/user-attachments/assets/62f614ba-6c05-42fa-9dc4-dda4bb9f5e87)
