@@ -25,7 +25,7 @@ const Verify = () => {
     }
     useEffect(()=>{
         verifyPayment();
-    },[]);
+    },[verifyPayment]);
 
   return (
     <div>

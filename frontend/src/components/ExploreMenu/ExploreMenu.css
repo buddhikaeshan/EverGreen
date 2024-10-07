@@ -5,15 +5,16 @@
 }
 
 .explore-menu p {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
+    color: #313131;
     padding: 3px 6px;
 }
 
 .explore-menu-item .active{
-    border: 1px solid #A9DFA0;
-    padding: 2px 5px;
+    border: 1px solid #313131;
+    padding: 2px 10px;
     border-radius: 15px;
 }
 
