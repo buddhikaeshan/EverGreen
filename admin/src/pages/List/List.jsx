@@ -96,7 +96,7 @@ const List = ({ url }) => {
 
   return (
     <div className="table-container">
-      <div className="pdf-button-container">
+      <div className="d-flex justify-content-end">
         <button className="btn btn-success" onClick={generatePDF}>
          PDF
         </button>

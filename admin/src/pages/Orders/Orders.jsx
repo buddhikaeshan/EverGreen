@@ -77,7 +77,9 @@ const Orders = ({ url }) => {
   return (
     <div className="table-container">
       <h3>Order Page</h3>
-      <button className="btn btn-success" onClick={generatePDF}> PDF</button>
+      <div className="d-flex justify-content-end">
+        <button className="btn btn-success" onClick={generatePDF}> PDF</button>
+      </div>
       <table className="table">
         <thead>
           <tr>
