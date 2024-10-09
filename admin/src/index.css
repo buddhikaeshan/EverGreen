@@ -20,3 +20,8 @@ a{
 link{
     text-decoration: none;
 }
+.scroll{
+    overflow-y: auto;
+    height: 100vh;
+    scrollbar-width: none;
+}
