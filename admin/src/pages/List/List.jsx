@@ -61,7 +61,7 @@ const List = ({ url }) => {
       toast.error("Error updating the item");
     }
   };
-  
+  const categories = ['Raw Refreshers', 'Milkshakes', 'Iced Green tea','Smoothies'];
 
   useEffect(() => {
     fetchList();
@@ -98,7 +98,8 @@ const List = ({ url }) => {
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         item={currentItem} 
-        onUpdate={updateFood} 
+        onUpdate={updateFood}
+        categories={categories}
       />
     </div>
   );

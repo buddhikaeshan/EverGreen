@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './UpdateModal.css';
 
-const UpdateModal = ({ isOpen, onClose, item, onUpdate }) => {
+const UpdateModal = ({ isOpen, onClose, item, onUpdate, categories }) => {
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -35,7 +35,6 @@ const UpdateModal = ({ isOpen, onClose, item, onUpdate }) => {
     setFormData({ name: '', category: '', price: '', image: null }); // Reset form data
     onClose();
   };
-  
 
   if (!isOpen) return null;
 
@@ -44,24 +43,25 @@ const UpdateModal = ({ isOpen, onClose, item, onUpdate }) => {
       <div className="modal-content">
         <h2>Update Food Item</h2>
         <form onSubmit={handleSubmit}>
-          <label>
-            Name:
-            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
-          </label>
-          <label>
-            Category:
-            <input type="text" name="category" value={formData.category} onChange={handleChange} required />
-          </label>
-          <label>
-            Price:
-            <input type="number" name="price" value={formData.price} onChange={handleChange} required />
-          </label>
-          <label>
-            Image:
-            <input type="file" onChange={handleImageChange} />
-          </label>
-          <button type="submit">Update</button>
-          <button type="button" onClick={onClose}>Cancel</button>
+          <label>Image:</label>
+          <input type="file" onChange={handleImageChange} />
+          <label> Name:</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+          <label>Category:</label>
+          <select name="category" value={formData.category} onChange={handleChange} required>
+            <option value="" disabled>Select a category</option>
+            {categories.map((category, index) => (
+              <option key={index} value={category}>
+                {category}
+              </option>
+            ))}
+          </select>
+          <label> Price:</label>
+          <input type="number" name="price" value={formData.price} onChange={handleChange} required />
+
+
+          <button type="submit" className='btn-update'>Update</button>
+          <button type="button" className='btn-remove' onClick={onClose}>Cancel</button>
         </form>
       </div>
     </div>
