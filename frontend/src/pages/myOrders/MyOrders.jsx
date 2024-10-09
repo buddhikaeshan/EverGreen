@@ -14,7 +14,7 @@ const MyOrders = () => {
 
     const fetchOrders = async () => {
         const response = await axios.post(url + "/api/order/userorders", {}, { headers: { token } })
-        setData(response.data.data);
+        setData(response.data.data.reverse());
         console.log(response.data.data);
     }
     useEffect(() => {
