@@ -17,3 +17,6 @@ a{
 .app-content{
     display:flex;
 }
+link{
+    text-decoration: none;
+}

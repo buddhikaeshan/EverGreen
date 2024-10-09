@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './List.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
-import UpdateModal from './UpdateModal'; // Import the UpdateModal component
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
+import UpdateModal from './UpdateModal';
 
 const List = ({ url }) => {
   const [list, setList] = useState([]);
@@ -42,18 +44,15 @@ const List = ({ url }) => {
       formData.append('name', data.name);
       formData.append('category', data.category);
       formData.append('price', data.price);
-      
-      // Append image only if it exists
       if (data.image) {
         formData.append('image', data.image);
       }
   
-      // Change to PUT request
       const response = await axios.put(`${url}/api/food/update/${foodId}`, formData);
       
       if (response.data.success) {
         toast.success(response.data.message);
-        fetchList(); // Refresh the list after update
+        fetchList();
       } else {
         toast.error("Error updating the item");
       }
@@ -61,14 +60,47 @@ const List = ({ url }) => {
       toast.error("Error updating the item");
     }
   };
-  const categories = ['Raw Refreshers', 'Milkshakes', 'Iced Green tea','Smoothies'];
+
+  const categories = ['Raw Refreshers', 'Milkshakes', 'Iced Green tea', 'Smoothies'];
 
   useEffect(() => {
     fetchList();
   }, []);
 
+  //generate PDF
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    doc.text('Food Items List', 14, 20);
+
+    const tableColumn = ['Name', 'Category', 'Price'];
+    const tableRows = [];
+
+    list.forEach((item) => {
+      const rowData = [
+        item.name,
+        item.category,
+        `Rs. ${item.price}`
+      ];
+      tableRows.push(rowData);
+    });
+
+    doc.autoTable({
+      head: [tableColumn],
+      body: tableRows,
+      startY: 30,
+      theme: 'grid',
+    });
+
+    doc.save('food_items_list.pdf');
+  };
+
   return (
     <div className="table-container">
+      <div className="pdf-button-container">
+        <button className="btn btn-success" onClick={generatePDF}>
+         PDF
+        </button>
+      </div>
       <table className="table">
         <thead>
           <tr>
