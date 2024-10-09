@@ -49,9 +49,9 @@ const Orders = ({ url }) => {
   }, []);
 
   return (
-    <div className="order-container">
+    <div className="table-container">
       <h3>Order Page</h3>
-      <table className="order-table">
+      <table className="table">
         <thead>
           <tr>
             <th>#</th>
@@ -86,10 +86,7 @@ const Orders = ({ url }) => {
               <td>{order.address.city}, {order.address.address}</td>
               <td>{order.address.phone}</td>
               <td>
-                <select
-                  onChange={(event) => statusHandler(event, order._id)}
-                  value={order.status}
-                >
+                <select onChange={(event) => statusHandler(event, order._id)} value={order.status} >
                   <option value="Food Processing">Food Processing</option>
                   <option value="Out for delivery">Out for Delivery</option>
                   <option value="Delivered">Delivered</option>
