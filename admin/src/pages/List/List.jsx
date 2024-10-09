@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './List.css';
 import { toast } from 'react-toastify';
 import axios from 'axios';
+import UpdateModal from './UpdateModal'; // Import the UpdateModal component
 
 const List = ({ url }) => {
   const [list, setList] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentItem, setCurrentItem] = useState(null);
 
   const fetchList = async () => {
     try {
@@ -33,6 +36,33 @@ const List = ({ url }) => {
     }
   };
 
+  const updateFood = async (foodId, data) => {
+    try {
+      const formData = new FormData();
+      formData.append('name', data.name);
+      formData.append('category', data.category);
+      formData.append('price', data.price);
+      
+      // Append image only if it exists
+      if (data.image) {
+        formData.append('image', data.image);
+      }
+  
+      // Change to PUT request
+      const response = await axios.put(`${url}/api/food/update/${foodId}`, formData);
+      
+      if (response.data.success) {
+        toast.success(response.data.message);
+        fetchList(); // Refresh the list after update
+      } else {
+        toast.error("Error updating the item");
+      }
+    } catch (error) {
+      toast.error("Error updating the item");
+    }
+  };
+  
+
   useEffect(() => {
     fetchList();
   }, []);
@@ -57,16 +87,19 @@ const List = ({ url }) => {
               <td>{item.category}</td>
               <td>Rs.{item.price}</td>
               <td>
-                <span 
-                  className="btn-remove" 
-                  onClick={() => removeFood(item._id)}>
-                  Remove
-                </span>
+                <span className="btn-update" onClick={() => { setCurrentItem(item); setIsModalOpen(true); }}>Update</span>
+                <span className="btn-remove" onClick={() => removeFood(item._id)}> Remove </span>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <UpdateModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        item={currentItem} 
+        onUpdate={updateFood} 
+      />
     </div>
   );
 };

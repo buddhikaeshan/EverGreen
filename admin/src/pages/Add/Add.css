@@ -36,6 +36,7 @@
 .add-categoty-price {
     display: flex;
     gap: 30px;
+    width: max(40%, 280px);
 }
 
 .add-categoty-price input,

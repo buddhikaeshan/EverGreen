@@ -1,0 +1,71 @@
+import React, { useState, useEffect } from 'react';
+import './UpdateModal.css';
+
+const UpdateModal = ({ isOpen, onClose, item, onUpdate }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    category: '',
+    price: '',
+    image: null,
+  });
+
+  useEffect(() => {
+    if (item) {
+      setFormData({
+        name: item.name,
+        category: item.category,
+        price: item.price,
+        image: null,
+      });
+    }
+  }, [item]);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleImageChange = (e) => {
+    setFormData((prev) => ({ ...prev, image: e.target.files[0] }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await onUpdate(item._id, formData);
+    setFormData({ name: '', category: '', price: '', image: null }); // Reset form data
+    onClose();
+  };
+  
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>Update Food Item</h2>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input type="text" name="name" value={formData.name} onChange={handleChange} required />
+          </label>
+          <label>
+            Category:
+            <input type="text" name="category" value={formData.category} onChange={handleChange} required />
+          </label>
+          <label>
+            Price:
+            <input type="number" name="price" value={formData.price} onChange={handleChange} required />
+          </label>
+          <label>
+            Image:
+            <input type="file" onChange={handleImageChange} />
+          </label>
+          <button type="submit">Update</button>
+          <button type="button" onClick={onClose}>Cancel</button>
+        </form>
+      </div>
+    </div>
+  );
+};
+
+export default UpdateModal;
